@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe",
+    "username": "juan124",
+    "name": "juan",
+    "lastname": "perez",
+    "email": "q@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  },
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe2",
+    "username": "carlos338",
+    "name": "carlos",
+    "lastname": "cardona",
+    "email": "carlos@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  },
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe3",
+    "username": "santiago23",
+    "name": "santiago",
+    "lastname": "mejia",
+    "email": "santiago@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  },
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe4",
+    "username": "ricardo67",
+    "name": "ricardo",
+    "lastname": "gutierrez",
+    "email": "ricardo@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  },
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe5",
+    "username": "tatiana334",
+    "name": "tatiana",
+    "lastname": "loaiza",
+    "email": "tatiana@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  },
+  {
+    "_id": "5d31df8ec5bdfd3eaeeb1ebe6",
+    "username": "mariana33",
+    "name": "mariana",
+    "lastname": "londoño",
+    "email": "mariana@q.com",
+    "__v": 0,
+    "lastLogin": "2019-07-19T21:25:56.888Z",
+    "date": "2019-07-19T15:19:42.322Z",
+    "status": 1,
+    "roles": [
+        "user"
+    ],
+    "provider": "local"
+  }
+]

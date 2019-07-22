@@ -1,3 +1,18 @@
+# PROJECT SIB
+
+### Quick start
+
+Ingresar con las siguientes credenciales de acceso:
+
+username: andres338
+password: 123456
+
+Permitirá ingresar a la aplicación. Estos datos fueron creados a traves de la API dispuesta para usuarios.
+
+### Nota:
+
+La simulación del listado de usuarios se hizo haciendo el llamado mediante una petición a un archivo *.json
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
