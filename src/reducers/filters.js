@@ -1,5 +1,4 @@
 import INITIAL_STATE from '../store/initialState'
-import { searchByAll, searchByName, searchByUsername } from '../utils/constants'
 
 const filtersReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

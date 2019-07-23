@@ -18,21 +18,22 @@ class Home extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { isLogged, history, usersItems, usersBackup, usersItemsCount, usersBackupCount, getUsersFiltered, filters } = this.props
+    const { isLogged, history, usersItems, usersBackup, usersItemsCount, usersBackupCount, getUsersFiltered, filters, selectedFilter } = this.props
     const { query } = filters
     if(!isLogged) {
       history.push('/')
     }
-    console.log('prevProps usersItems',prevProps)
+    console.log('prevProps',prevProps)
     console.log('prevProps usersItems',prevProps.filters)
     console.log('usersItems',usersItems, usersItemsCount)
     console.log('usersBackup',usersBackup, usersBackupCount)
-    console.log('filters',filters)
+    console.log('filters query',filters, filters.query)
+    console.log('selectedFilter',selectedFilter)
     console.log('this.state',this.state)
     // if(prevState.error !== this.state.error) {
     //   // console.log('entro')
     // }
-    if(prevProps.filters !== query && query.length > 2 && usersItemsCount === usersBackupCount) {
+    if(prevProps.filters.query !== query) {
       console.log('entro')
       getUsersFiltered(query)
     }
@@ -99,7 +100,8 @@ const mapStateToProps = state => {
     usersItemsCount: state.usersReducer.users.length,
     usersBackupCount: state.usersReducer.usersBackup.length,
     loading: state.usersReducer.loading,
-    filters: state.filtersReducer.filters,
+    filters: state.usersReducer.filters,
+    selectedFilter: state.usersReducer.selectedFilter,
     error: state.usersReducer.error,
   }
 }

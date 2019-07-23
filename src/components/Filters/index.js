@@ -90,8 +90,8 @@ const mapStateToProps = state => {
     usersBackup: state.usersReducer.usersBackup,
     usersCount: state.usersReducer.users.length,
     isLogged: state.loginReducer.isLogged,
-    filters: state.filtersReducer.filters,
-    selectedFilter: state.filtersReducer.selectedFilter,
+    filters: state.usersReducer.filters,
+    selectedFilter: state.usersReducer.selectedFilter,
   }
 }
 

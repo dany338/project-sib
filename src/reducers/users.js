@@ -21,6 +21,27 @@ const usersReducer = (state = INITIAL_STATE, action) => {
       }
     }
 
+    case 'SET_FILTER_USERS': {
+      const { selectedFilter } = action.payload
+
+      return {
+        ...state,
+        selectedFilter,
+      }
+    }
+
+    case 'SET_FILTERS_QUERY': {
+      const { name, value } = action.payload
+
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [name]: value
+        },
+      }
+    }
+
     case 'SET_USERS_BY_FILTER': {
       const { query } = action.payload
       console.log(' SET_USERS_BY_FILTER state.usersBackup',state.usersBackup, query)
