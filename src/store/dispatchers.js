@@ -77,7 +77,7 @@ export const deleteUserRequest = (user) => {
   }
 }
 
-export const userFormChangeRequest = ({name, value}) => {
+export const userFormChangeRequest = (name, value) => {
   return (dispatch) => {
     try {
       // console.log('8) se dispara setUserFormChange')
@@ -102,13 +102,18 @@ export const loginRequest = (login) => {
       dispatch(SibActions.fetchLoginRequest())
       // console.log('7) se dispara el fetch a la API')
       const auth = await api.login(login)
-      if( auth.token !== undefined ) {
-        login = { ...login, token: auth.token }
+      console.log('auth', auth)
+      if( auth.message !== undefined ) {
+        dispatch(SibActions.fetchLoginFailure(auth.message))
+      } else {
+        if( auth.token !== undefined ) {
+          login = { ...login, token: auth.token }
+        }
+        // console.log('8) se dispara fetchLoginSuccess', login)
+        dispatch(SibActions.fetchLoginSuccess(login))
       }
-      // console.log('8) se dispara fetchLoginSuccess', login)
-      dispatch(SibActions.fetchLoginSuccess(login))
     } catch (error) {
-      dispatch(SibActions.fetchUsersFailure(error.message))
+      dispatch(SibActions.fetchLoginFailure(error.message))
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import Skeleton from 'react-loading-skeleton'
 
 import CardLogin from '../components/CardLogin'
@@ -34,7 +34,7 @@ class Login extends Component {
 
   render() {
     const { classError } = this.state
-    const { loading, isLogged, error } = this.props
+    const { loading, isLogged, errorLogin } = this.props
     // const products = useSelector(state => state.loginReducer.products)
     // const isLoading = useSelector(state => state.loginReducer.loading)
     // const isError = useSelector(state => state.loginReducer.error)
@@ -42,14 +42,14 @@ class Login extends Component {
     return (
       <div>
         <h1 className="is-size-2" style={{ background: 'hsl(204, 86%, 53%)' }}>Página Login</h1>
-        {error && (
+        {errorLogin && (
           <article className={`message is-danger ${classError}`}>
             <div className="message-header">
               <p>Ups, hubo un error:</p>
               <button className="delete" aria-label="delete" onClick={this.handleLinkClose}></button>
             </div>
             <div className="message-body">
-              <strong>{error}</strong>
+              <strong>{errorLogin}</strong>
             </div>
           </article>
         )}
@@ -77,7 +77,7 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     isLogged: state.loginReducer.isLogged,
-    error: state.loginReducer.error,
+    errorLogin: state.loginReducer.errorLogin,
     loading: state.loginReducer.loading,
   }
 }

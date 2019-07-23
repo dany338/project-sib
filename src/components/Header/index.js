@@ -8,35 +8,57 @@ const Header = (props) => {
   const { isLogged, userForm, userFormChange, createUserSend, updateUserSend, deleteUserSend } = props
   const { _id, username, password, email, name, lastname, ubicacion, perfil } = userForm
   const [errorField, setErrorFieldText] = useState(false)
+  const [perfilField, setPerfilField] = useState(perfil)
 
   const handleChange = event => {
     const { name, value } = event.target
+    console.log('perfilField', perfilField)
+    console.log(name, value)
     // const newUserForm = { ...userForm, [name]: value }
-    userFormChange(name, value)
-    setErrorFieldText(false)
+    if(name === 'perfil' && value === 'Select your profile') {
+      setErrorFieldText(true)
+    } else if(name === 'perfil' && value !== 'Select your profile') {
+      setPerfilField(value)
+      userFormChange(name, value)
+      setErrorFieldText(false)
+    }
+    else {
+      userFormChange(name, value)
+      setErrorFieldText(false)
+    }
   }
 
   const handleSubmit = () => {
 
-    // for (const name in userForm) {
-    //   const value = userForm[name]
-    //   if(value !== '') {
-    //     continue;
-    //   } else {
-    //     setErrorFieldText(true)
-    //     break;
-    //   }
-    // }
-    if(username !== '' && password !== '' && email !== '' && name !== '' && lastname !== '' && ubicacion !== '' && perfil !== '') {
-      console.log('handleSubmit', userForm)
-      if(_id !== null) {
-        createUserSend(userForm)
-      } else {
-        updateUserSend(userForm)
+    for (const name in userForm) {
+      const value = userForm[name]
+      if(value !== null) {
+        if(value !== '') {
+          continue;
+        } else {
+          setErrorFieldText(true)
+          break;
+        }
       }
-    } else {
-      setErrorFieldText(true)
     }
+
+    if(!errorField) {
+      if(_id === null) {
+        console.log('userForm create', userForm)
+        createUserSend(userForm)
+      }
+    }
+    console.log('errorField', errorField)
+    // if(username !== '' && password !== '' && email !== '' && name !== '' && lastname !== '' && ubicacion !== '' && perfil !== '') {
+    //   console.log('handleSubmit', userForm)
+    //   if(_id !== null) {
+    //     createUserSend(userForm)
+    //   } else {
+    //     updateUserSend(userForm)
+    //   }
+    // } else {
+    //   setErrorFieldText(true)
+    // }
   }
 
   const handleDelete = () => {
@@ -170,7 +192,7 @@ const Header = (props) => {
                 <div className="field">
                   <div className="control has-icons-left">
                     <div className="select">
-                      <select name="perfil" onChange={handleChange}>
+                      <select name="perfil" value={perfilField} onChange={handleChange}>
                         <option key={nanoid()}>Select your profile</option>
                         <option key={nanoid()} value="user">user</option>
                         <option key={nanoid()} value="admin">admin</option>
